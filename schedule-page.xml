@@ -1,0 +1,29 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Class Schedule" class="bg-blue-600 text-white">
+        <NavigationButton visibility="visible" />
+    </ActionBar>
+    
+    <GridLayout rows="auto, *" class="p-4">
+        <Label row="0" text="{{ 'Semester: ' + schedule.semester }}" class="text-lg font-bold mb-4" />
+        
+        <ListView row="1" items="{{ schedule.schedule }}" class="list-group">
+            <ListView.itemTemplate>
+                <StackLayout class="list-group-item p-4">
+                    <Label text="{{ day }}" class="text-xl font-bold mb-2" />
+                    <Repeater items="{{ classes }}">
+                        <Repeater.itemTemplate>
+                            <GridLayout columns="auto, *" class="mb-2 p-2 bg-gray-50 rounded">
+                                <Label col="0" text="{{ time }}" class="font-semibold mr-4" />
+                                <StackLayout col="1">
+                                    <Label text="{{ subject }}" class="font-medium" />
+                                    <Label text="{{ 'Room: ' + room }}" class="text-gray-600" />
+                                    <Label text="{{ 'Faculty: ' + faculty }}" class="text-gray-600" />
+                                </StackLayout>
+                            </GridLayout>
+                        </Repeater.itemTemplate>
+                    </Repeater>
+                </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

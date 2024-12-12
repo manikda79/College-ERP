@@ -1,0 +1,24 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Login" class="bg-blue-600 text-white" />
+    
+    <StackLayout class="p-6">
+        <Image src="~/images/logo.png" class="h-32 w-32 mb-8 self-center" />
+        
+        <Label text="Welcome to College ERP" class="text-2xl font-bold text-center mb-6" />
+        
+        <TextField hint="Username" text="{{ username }}" 
+            class="mb-4 p-4 bg-white rounded-lg border border-gray-300" />
+            
+        <TextField hint="Password" text="{{ password }}" secure="true"
+            class="mb-6 p-4 bg-white rounded-lg border border-gray-300" />
+            
+        <Button text="Login" tap="{{ onLogin }}" 
+            class="bg-blue-600 text-white font-semibold p-4 rounded-lg" />
+            
+        <ActivityIndicator busy="{{ isLoading }}" class="mt-4" />
+        
+        <Label text="{{ errorMessage }}" 
+            class="text-red-500 text-center mt-4" 
+            visibility="{{ errorMessage ? 'visible' : 'collapsed' }}" />
+    </StackLayout>
+</Page>
